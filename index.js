@@ -1,32 +1,25 @@
-/*Objects defines a `recipes` object:
-      Error: Expected 'undefined' to equal 'object'
-      + expected - actual
-      -undefined
-      +object */
-var recipes = {};
-
-/*Objects updateObjectWithKeyAndValue(object, key, value) returns a clone of
-`object` by adding `key` and `value` (it is non-destructive):*/
-function updateObjectWithKeyAndValue(obj, key, value) {
-  return Object.assign({}, obj, {[key]: value});
+var recipes = {
+  'burger': 'ground beef, cheese',
+  'pbj': 'peanut butter, jelly'
 }
 
-/*Objects destructivelyUpdateObjectWithKeyAndValue(object, key, value) updates
-`object` with the given `key` and `value` (it is destructive):*/
-function destructivelyUpdateObjectWithKeyAndValue(obj, key, value) {
-  obj[key] = value;
+function updateObjectWithKeyAndValue(object, key, value){
+  return Object.assign({}, object, { [key]: value })
+}
+
+function destructivelyUpdateObjectWithKeyAndValue(object, key, value){
+  object[key] = value;
+  return object;
+}
+
+function deleteFromObjectByKey(object, key){
+  const obj = Object.assign({}, object);
+  delete obj[key];
   return obj;
 }
 
-/*Objects deleteFromObjectByKey(object, key) deletes `key` from a clone of
-object and returns the new object (it is non-destructive):   */
-function deleteFromObjectByKey(obj, key) {
-  return Object.assign({}, obj, key);
+function destructivelyDeleteFromObjectByKey(object, key){
+  delete object[key];
+  return object;
 }
 
-/*Objects destructivelyDeleteFromObjectByKey(object, key) deletes `key` from
-object and returns object:  */
-function destructivelyDeleteFromObjectByKey(obj, key) {
-  obj[key];
-  return obj;
-}
